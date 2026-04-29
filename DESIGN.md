@@ -6,23 +6,24 @@ This document is the single source of truth for visual design. All AI agents and
 
 ## Brand Colors
 
-| Role            | Name         | Hex       | Usage                                              |
-|-----------------|--------------|-----------|----------------------------------------------------|
-| Primary         | Navy Blue    | `#1e3a8a` | Navbar, headings, footer, primary text             |
-| Accent          | Gold         | `#f59e0b` | CTA buttons, highlights, badges, hover states      |
-| Background      | White        | `#ffffff` | Page background, cards                             |
-| Surface         | Light Grey   | `#f3f4f6` | Section backgrounds, input fields, dividers        |
-| Border          | Grey         | `#d1d5db` | Card borders, input borders, subtle dividers       |
-| Body Text       | Dark Charcoal| `#1f2937` | Paragraphs, labels, secondary text                 |
-| Muted Text      | Cool Grey    | `#6b7280` | Captions, placeholders, meta info                  |
-| White Text      | White        | `#ffffff` | Text on navy or gold backgrounds                   |
+| Role            | Name            | Hex       | Usage                                               |
+|-----------------|-----------------|-----------|-----------------------------------------------------|
+| Primary         | Deep Indigo     | `#262262` | Navbar, headings, footer, primary text, hero overlay|
+| Accent          | Warm Bronze/Gold| `#C49A6C` | CTA buttons, highlights, badges, hover states, icons|
+| Surface         | Silver Grey     | `#D9D9D9` | Section backgrounds, input fields, dividers, borders|
+| Background      | White           | `#ffffff` | Page background, cards                              |
+| Body Text       | Dark Charcoal   | `#1f2937` | Paragraphs, labels, secondary text                  |
+| Muted Text      | Cool Grey       | `#6b7280` | Captions, placeholders, meta info                   |
+| White Text      | White           | `#ffffff` | Text on indigo or bronze backgrounds                |
 
 ### Color Rules
-- **Navy** is the authority color — headers, nav, section titles, footer.
-- **Gold** is the action color — every clickable CTA, hover state, active indicator, badge, and price highlight uses gold.
-- **White + Light Grey** alternate as section backgrounds to create visual rhythm without adding new colors.
-- Never place gold text on white — contrast is insufficient. Use navy or charcoal for text instead.
-- Gold buttons always use dark (`#1f2937`) or navy text, never white.
+- **Deep Indigo `#262262`** is the authority color — navbar, all headings, footer background, hero overlay tint, section titles.
+- **Warm Bronze `#C49A6C`** is the action color — every CTA button, hover state, active nav indicator, badge, price highlight, and icon accent uses bronze.
+- **Silver Grey `#D9D9D9`** is the neutral surface — alternate section backgrounds, input borders, card dividers, skeleton loaders.
+- **White** is the default page and card background — keeps the layout breathing.
+- Never place bronze text on white — contrast is low. Use indigo or charcoal for text on light backgrounds.
+- Bronze buttons always use indigo (`#262262`) or white text depending on button size — never charcoal.
+- Deep indigo and bronze can be paired directly (e.g. indigo footer with bronze links/icons).
 
 ---
 

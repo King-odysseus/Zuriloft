@@ -10,12 +10,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: '#1e3a8a',
-        gold: '#f59e0b',
+        indigo:   '#262262',
+        bronze:   '#C49A6C',
+        silver:   '#D9D9D9',
         charcoal: '#1f2937',
         'cool-grey': '#6b7280',
-        'light-grey': '#f3f4f6',
-        'border-grey': '#d1d5db',
       },
       fontFamily: {
         inter: ['Inter', 'system-ui', 'sans-serif'],
@@ -27,16 +26,16 @@ export default {
     themes: [
       {
         zuriloft: {
-          primary: '#1e3a8a',      // Navy Blue
-          secondary: '#f59e0b',    // Gold
-          accent: '#f59e0b',       // Gold
-          neutral: '#f3f4f6',      // Light Grey
-          'base-100': '#ffffff',   // White
-          'base-200': '#f3f4f6',   // Light Grey
-          'base-300': '#d1d5db',   // Grey
-          'base-content': '#1f2937', // Charcoal
-          'primary-content': '#ffffff', // White on primary
-          'secondary-content': '#1f2937', // Charcoal on secondary
+          primary:            '#262262',  // Deep Indigo
+          secondary:          '#C49A6C',  // Warm Bronze
+          accent:             '#C49A6C',  // Warm Bronze
+          neutral:            '#D9D9D9',  // Silver Grey
+          'base-100':         '#ffffff',  // White
+          'base-200':         '#D9D9D9',  // Silver Grey
+          'base-300':         '#b0b0b0',  // Darker grey
+          'base-content':     '#1f2937',  // Charcoal
+          'primary-content':  '#ffffff',  // White on indigo
+          'secondary-content':'#262262',  // Indigo on bronze
         },
       },
     ],
