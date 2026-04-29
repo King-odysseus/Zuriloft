@@ -87,12 +87,38 @@ Section padding: `py-16` (64px) on desktop, `py-10` (40px) on mobile.
 - Sticky on scroll with `shadow-sm`
 - Height: `64px`
 
+**Design Techniques:**
+- **Scroll-aware styling**: Uses `useState` and `useEffect` with scroll listener to toggle between transparent (hero) and white (scrolled) states
+- **Dynamic color transitions**: Text and border colors change based on scroll position (`scrolled` state)
+- **Animated underline**: Gold underline expands on hover using `group-hover:w-full` with `transition-all duration-200`
+- **Responsive mobile menu**: Hamburger menu with slide-down animation and mobile-specific CTA buttons
+- **Fixed positioning**: `fixed w-full z-20 top-0` for persistent navigation
+
+```jsx
+// Scroll detection pattern
+const [scrolled, setScrolled] = useState(false);
+useEffect(() => {
+  const onScroll = () => setScrolled(window.scrollY > 50);
+  window.addEventListener('scroll', onScroll);
+  return () => window.removeEventListener('scroll', onScroll);
+}, []);
+```
+
 ### Hero Section
 - Full-width photographic background (property exterior, dusk/golden hour preferred)
 - Dark overlay: `bg-black/40` for text legibility
 - Centered content: large white heading + short white subtext
 - Search bar: white pill-shaped input, gold "Search" button on the right
 - Search bar width: max `680px`, centered
+
+**Design Techniques:**
+- **Multi-layer gradient overlay**: `bg-gradient-to-b from-[#262262]/70 via-[#262262]/40 to-[#262262]/70` for depth
+- **Animated number counters**: Custom `AnimatedNumber` component using `IntersectionObserver` and `requestAnimationFrame` with easing
+- **Easing function**: `easeOutQuart = 1 - Math.pow(1 - progress, 4)` for smooth number animation
+- **Status badge with pulse**: Green pulse dot using `animate-pulse` to indicate availability
+- **Text shadow enhancement**: Inline style `textShadow: '2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(0,0,0,0.3)'`
+- **Hover scale effects**: Stats numbers scale and change color on hover
+- **Backdrop blur**: `backdrop-blur-sm` for frosted glass effect on badges
 
 ### Search Bar
 - Background: White `#ffffff`
@@ -102,19 +128,49 @@ Section padding: `py-16` (64px) on desktop, `py-10` (40px) on mobile.
 - Button: Gold background, navy/dark text, rounded-full, `px-6 py-3`
 - Box shadow: `shadow-lg`
 
-### Section: Feature Grid (Cards)
-- White background section
-- Left: large bold heading + body text + gold CTA button
-- Right: 2×3 grid of property category cards
-- Each card: rounded image top, label below, subtle hover shadow
-- Card border: `border border-gray-200`, `rounded-xl`
+**Design Techniques:**
+- **Hover scale transformation**: `hover:scale-[1.02]` with `transform` for subtle interactivity
+- **Icon color accent**: Gold search icon `#C49A6C` for brand consistency
 
 ### Property Card
 - White background, `rounded-2xl`, `shadow-md hover:shadow-lg`
-- Image: top of card, `aspect-video`, `object-cover`, `rounded-t-2xl`
+- Image: top of card, `aspect-[4/3]`, `object-cover`, `rounded-t-2xl`
 - Price stats row: 3 columns (each with a label and bold value)
 - Gold `+` floating action button on image corner
 - Hover: slight lift (`hover:-translate-y-1 transition-all`)
+
+**Design Techniques:**
+- **Group hover effects**: `group` class enables coordinated hover states across child elements
+- **Image zoom on hover**: `group-hover:scale-110` with `transition-transform duration-500`
+- **Gradient overlay reveal**: `bg-gradient-to-t from-black/30` fades in on hover for text legibility
+- **Floating action button**: Absolute positioned favorite button with `backdrop-blur-sm` glass effect
+- **Interactive heart icon**: State-driven color change (red when liked, gray when not)
+- **Badge positioning**: `absolute top-4 left-4` with shadow for depth
+- **Stats divider**: Absolute positioned vertical dividers between stat items
+- **Price highlight**: Bronze color `#C49A6C` for price to draw attention
+- **Rating badge**: Bronze background with 10% opacity `bg-[#C49A6C]/10`
+- **Border separator**: `border-y border-[#D9D9D9]` for stats section
+
+```jsx
+// Group hover pattern
+<div className="group ...">
+  <img className="... transition-transform duration-500 group-hover:scale-110" />
+  <div className="... opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+</div>
+```
+
+### Property Page
+- Full property detail view with image gallery
+- Two-column layout: details (left) + booking card (right)
+- Sticky booking card on scroll
+
+**Design Techniques:**
+- **Asymmetric image gallery**: Main large image + stacked smaller images using `md:col-span-2`
+- **Sticky sidebar**: `sticky top-24` for booking card that follows scroll
+- **Icon + text pairs**: Consistent pattern of gold icon + label + value
+- **Form input styling**: Rounded inputs with focus states using `focus:border-[#C49A6C]`
+- **Custom Tailwind colors**: Uses extended colors from `tailwind.config.js` (`text-gold`, `text-navy`, etc.)
+- **Back navigation**: Styled link with icon for intuitive navigation
 
 ### Buttons
 
@@ -126,11 +182,37 @@ Section padding: `py-16` (64px) on desktop, `py-10` (40px) on mobile.
 
 All buttons: `rounded-full`, `px-6 py-2.5`, `font-semibold`, `transition-all`
 
+**Design Techniques:**
+- **Shadow elevation on hover**: `hover:shadow-lg` for depth feedback
+- **Color darken on hover**: `hover:bg-[#b8895c]` (darker bronze)
+- **Full-width on mobile**: Responsive buttons that adapt to container width
+- **State-based styling**: Buttons change appearance based on parent scroll state
+
+### Contact Section
+- Two-column layout: form (left) + contact info (right)
+- Silver grey background `#D9D9D9`
+- Form card with white background and shadow
+
+**Design Techniques:**
+- **Split layout**: `grid-cols-1 lg:grid-cols-2` for responsive two-column design
+- **Form input styling**: Rounded-full inputs with `focus:border-[#C49A6C]` transition
+- **Icon containers**: Circular bronze backgrounds with indigo icons for contact methods
+- **Response time highlight**: Bronze background card for emphasis
+- **Form validation**: Native HTML5 validation with `required` attributes
+
 ### Footer
 - Navy background `#1e3a8a`
 - White text for links and headings
 - Gold for link hover states and logo accent
 - Minimal: copyright left, social icons right
+
+**Design Techniques:**
+- **Four-column grid**: Company info (2 cols) + Quick Links + Contact
+- **Social icon hover**: Bronze background reveal on hover with color transition
+- **Logo abbreviation**: Simple "Z" in bronze square for brand recognition
+- **Link hover animation**: `hover:text-[#C49A6C]` with `transition-colors duration-200`
+- **Dividers**: `border-t border-white/10` for section separation
+- **Current year**: Dynamic copyright using `new Date().getFullYear()`
 
 ---
 
@@ -156,10 +238,103 @@ All buttons: `rounded-full`, `px-6 py-2.5`, `font-semibold`, `transition-all`
 ---
 
 ## Motion / Transitions
+
+### Standard Transitions
 - All interactive elements: `transition-all duration-200`
 - Card hover: `hover:-translate-y-1 hover:shadow-lg`
 - Button hover: `hover:opacity-90` or darken by one shade
 - No heavy animations — keep it fast and professional
+
+### Advanced Animation Patterns
+
+**1. Intersection Observer Animations**
+```jsx
+// Trigger animations when elements enter viewport
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    if (entry.isIntersecting) {
+      setIsVisible(true);
+    }
+  },
+  { threshold: 0.5 }
+);
+```
+
+**2. Number Counter Animation**
+```jsx
+// Eased number counting with requestAnimationFrame
+const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+const currentValue = numericValue * easeOutQuart;
+```
+
+**3. Group Hover Coordination**
+```jsx
+// Parent 'group' class enables child 'group-hover:' variants
+<div className="group">
+  <div className="opacity-0 group-hover:opacity-100 transition-opacity" />
+</div>
+```
+
+**4. Scale Transforms**
+- Hover scale: `hover:scale-110` for icons and interactive elements
+- Card lift: `hover:-translate-y-2` for elevation effect
+- Contained scaling: `overflow-hidden` on parent prevents layout shift
+
+**5. Color Transitions**
+- State changes: `transition-colors duration-200`
+- Fill animations: Heart icon fills with `fill-current` class toggle
+- Background shifts: Navbar background transitions on scroll
+
+---
+
+## Responsive Design Patterns
+
+### Breakpoint Strategy
+| Breakpoint | Tailwind | Usage |
+|------------|----------|-------|
+| Mobile | default | Single column, stacked layout |
+| Tablet | `md:` (768px) | Two columns where appropriate |
+| Desktop | `lg:` (1024px) | Full multi-column layouts |
+| Wide | `xl:` (1280px) | Max-width containers |
+
+### Common Responsive Patterns
+- **Grid transforms**: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`
+- **Typography scaling**: `text-3xl md:text-4xl lg:text-5xl`
+- **Hidden elements**: `hidden md:block` for desktop-only content
+- **Padding adjustments**: `p-4 md:p-8` for comfortable touch targets
+- **Navigation**: Full nav on desktop, hamburger menu on mobile
+
+---
+
+## Tailwind Configuration
+
+### Custom Colors (tailwind.config.js)
+```javascript
+colors: {
+  indigo:   '#262262',    // Deep Indigo
+  bronze:   '#C49A6C',    // Warm Bronze
+  silver:   '#D9D9D9',    // Silver Grey
+  charcoal: '#1f2937',    // Dark Charcoal
+  'cool-grey': '#6b7280', // Muted Text
+}
+```
+
+### DaisyUI Theme Configuration
+```javascript
+themes: [{
+  zuriloft: {
+    primary:            '#262262',  // Deep Indigo
+    secondary:          '#C49A6C',  // Warm Bronze
+    accent:             '#C49A6C',  // Warm Bronze
+    neutral:            '#D9D9D9',  // Silver Grey
+    'base-100':         '#ffffff',  // White
+    'base-200':         '#D9D9D9',  // Silver Grey
+    'base-content':     '#1f2937',  // Charcoal
+    'primary-content':  '#ffffff',  // White on indigo
+    'secondary-content':'#262262',  // Indigo on bronze
+  }
+}]
+```
 
 ---
 
@@ -173,3 +348,24 @@ All buttons: `rounded-full`, `px-6 py-2.5`, `font-semibold`, `transition-all`
 | Maintain generous whitespace between sections   | Crowd elements together                       |
 | Use rounded-full for all buttons and inputs     | Use squared or slightly-rounded buttons       |
 | Lead with large bold property photography       | Use illustrations or abstract graphics        |
+| Apply `transition-all duration-200` on hover    | Use instant state changes without transitions |
+| Use `group` class for coordinated hover states  | Animate individual elements independently     |
+| Include `overflow-hidden` on image containers   | Allow scaled images to break layout           |
+| Implement scroll-aware navbar styling           | Keep navbar static regardless of position     |
+
+---
+
+## Component Implementation Checklist
+
+When implementing new components:
+
+- [ ] Use correct brand colors from the palette
+- [ ] Apply appropriate border-radius (rounded-2xl for cards, rounded-full for buttons)
+- [ ] Add `transition-all duration-200` for interactive elements
+- [ ] Include hover states with shadow and/or transform
+- [ ] Use group hover for coordinated child animations
+- [ ] Ensure responsive behavior with mobile-first approach
+- [ ] Add focus states for accessibility
+- [ ] Use proper semantic HTML elements
+- [ ] Include aria-labels for icon buttons
+- [ ] Test color contrast for accessibility

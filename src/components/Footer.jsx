@@ -11,10 +11,10 @@ function Footer() {
               </div>
               <span className="text-2xl font-bold">ZuriLofts</span>
             </div>
-            <p className="text-white/80 mb-6 max-w-sm">
-              Your trusted partner in finding the perfect short-let apartment in Nairobi.
-              Premium comfort, unbeatable locations.
-            </p>
+              <p className="text-white/80 mb-6 max-w-sm">
+                Your trusted host in luxurious short-let apartment stays in Nairobi.
+                Premium comfort, unbeatable locations.
+              </p>
             {/* Social Links */}
             <div className="flex space-x-4">
               {['Facebook', 'Twitter', 'Instagram'].map((name, i) => (
@@ -44,7 +44,7 @@ function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-[#C49A6C]">Quick Links</h4>
             <ul className="space-y-3">
-              {[['Home','#home'],['Properties','#properties'],['Amenities','#amenities'],['Contact','#contact']].map(([label, href]) => (
+              {[['Home','#home'],['Properties','#properties'],['Contact','#contact']].map(([label, href]) => (
                 <li key={label}>
                   <a href={href} className="text-white/80 hover:text-[#C49A6C] transition-colors duration-200">{label}</a>
                 </li>

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import Hero from './components/Hero';
+import Footer from './components/Footer';
 import { useState, useEffect } from 'react';
 import PropertyPage from './components/PropertyPage';
 
@@ -188,7 +189,119 @@ function HomePage() {
             <img className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" src="https://images.pexels.com/photos/36298878/pexels-photo-36298878.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Kenyan scenic road" />
           </div>
         </div>
+
+        {/* Recommended Places to Visit in Nairobi */}
+        <div className="mt-48 mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#262262]">Recommended Places to Visit</h2>
+            <p className="text-cool-grey max-w-2xl mx-auto text-lg mt-3">
+              Explore the best of Nairobi during your stay
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Nairobi National Park',
+                desc: 'A unique wildlife reserve just minutes from the city center. Spot lions, giraffes, zebras, and rhinos against a backdrop of Nairobi\'s skyline.',
+                image: 'https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=800',
+              },
+              {
+                name: 'Karen Blixen Museum',
+                desc: 'Step into the former home of the Out of Africa author. Set in the scenic Karen suburb, this museum offers a glimpse into Kenya\'s colonial history.',
+                image: 'https://images.pexels.com/photos/259593/pexels-photo-259593.jpeg?auto=compress&cs=tinysrgb&w=800',
+              },
+              {
+                name: 'Nairobi National Museum',
+                desc: 'Discover Kenya\'s rich cultural and natural heritage through fascinating exhibits on art, archaeology, history, and wildlife.',
+                image: 'https://images.pexels.com/photos/27975402/pexels-photo-27975402.jpeg?auto=compress&cs=tinysrgb&w=800',
+              },
+              {
+                name: 'Kazuri Beads Factory',
+                desc: 'Visit this fair-trade ceramic workshop in Karen. Watch artisans create beautiful handmade beads and pottery — perfect for unique souvenirs.',
+                image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
+              },
+              {
+                name: 'Giraffe Centre',
+                desc: 'Get up close with endangered Rothschild giraffes at this conservation and education center. A favorite for families and animal lovers.',
+                image: 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=800&q=80',
+              },
+              {
+                name: 'Karura Forest',
+                desc: 'Escape the city into this expansive urban forest. Walk, cycle, or picnic along scenic trails with waterfalls, caves, and diverse birdlife.',
+                image: 'https://images.pexels.com/photos/1757363/pexels-photo-1757363.jpeg?auto=compress&cs=tinysrgb&w=800',
+              },
+            ].map((place, i) => (
+              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div className="h-48 overflow-hidden">
+                  <img className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" src={place.image} alt={place.name} />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-bold text-[#262262] mb-2">{place.name}</h3>
+                  <p className="text-charcoal text-sm leading-relaxed">{place.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Recommended Restaurants in Nairobi */}
+        <div className="mt-48 mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#262262]">Best Places to Eat</h2>
+            <p className="text-cool-grey max-w-2xl mx-auto text-lg mt-3">
+              Experience Nairobi's vibrant dining scene
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Carnivore Restaurant',
+                desc: 'Nairobi\'s most iconic dining experience. Feast on nyama choma (roasted meat) in a lively, safari-themed setting with traditional sides and sauces.',
+                image: 'https://images.pexels.com/photos/941869/pexels-photo-941869.jpeg?auto=compress&cs=tinysrgb&w=800',
+              },
+              {
+                name: 'Talisman Restaurant',
+                desc: 'Set in a lush garden in Karen, Talisman serves a fusion of African, European, and Asian flavors. Popular for its art gallery and weekend brunch.',
+                image: 'https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=800',
+              },
+              {
+                name: 'Al-Yusra',
+                desc: 'A beloved Swahili seafood spot in the city center. Known for its grilled fish, biryani, and authentic coastal Kenyan dishes at affordable prices.',
+                image: 'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=800',
+              },
+              {
+                name: 'About Thyme Restaurant',
+                desc: 'A tranquil garden restaurant in Westlands. Perfect for romantic dinners or relaxed lunches with a menu spanning continental and Kenyan cuisine.',
+                image: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800',
+              },
+              {
+                name: 'Nyama Mama',
+                desc: 'A modern twist on Kenyan comfort food. Try their signature mursik, smoky grilled meats, and creative takes on traditional ugali and sukuma wiki.',
+                image: 'https://images.pexels.com/photos/1566837/pexels-photo-1566837.jpeg?auto=compress&cs=tinysrgb&w=800',
+              },
+              {
+                name: 'Java House',
+                desc: 'Nairobi\'s favorite coffeehouse chain. Great for breakfast, casual meetings, or a quick bite. Known for its Kenyan coffee and relaxed atmosphere.',
+                image: 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800',
+              },
+            ].map((place, i) => (
+              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div className="h-48 overflow-hidden">
+                  <img className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" src={place.image} alt={place.name} />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-bold text-[#262262] mb-2">{place.name}</h3>
+                  <p className="text-charcoal text-sm leading-relaxed">{place.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
+
+      <Footer />
     </>
   );
 }
