@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Circular', Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.py-24 {
+  padding-top: 15rem;
+  padding-bottom: 8rem;
+}
+
+/* Hero Section Background */
+.hero-bg {
+  background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: blur(1.5px);
+  transform: scale(1.1);
+}
+
+@media (min-width: 1024px) {
+  .lg\:pr-8 {
+    padding-right: 8rem;
+  }
+}
