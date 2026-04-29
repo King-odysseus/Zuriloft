@@ -4,20 +4,9 @@ import Hero from './components/Hero';
 import Footer from './components/Footer';
 import { useState, useEffect } from 'react';
 import PropertyPage from './components/PropertyPage';
-
-// Your single furnished apartment
-const apartment = {
-  image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
-  title: 'Premium Furnished Apartment',
-  location: 'Kilimani, Nairobi',
-  price: 6300,
-  rating: 5.0,
-  reviews: 12,
-  bedrooms: 2,
-  bathrooms: 2,
-  area: 950,
-  badge: 'Available Now'
-};
+import ContactPage from './pages/ContactPage';
+import PropertiesPage from './pages/PropertiesPage';
+import BookingPage from './pages/BookingPage';
 
 // Home page component
 function HomePage() {
@@ -311,7 +300,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/properties" element={<PropertiesPage />} />
         <Route path="/property/:id" element={<PropertyPage />} />
+        <Route path="/booking/:id" element={<BookingPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>
   );

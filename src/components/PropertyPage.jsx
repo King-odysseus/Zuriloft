@@ -1,4 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 function PropertyPage() {
   const { id } = useParams();
@@ -40,17 +42,19 @@ function PropertyPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Navbar />
+      
       {/* Header with back button */}
-      <div className="bg-navy py-4 px-6">
+      <div className="bg-[#262262] py-4 px-6 pt-24">
         <div className="max-w-7xl mx-auto flex items-center">
           <Link 
-            to="/" 
-            className="flex items-center text-white hover:text-gold transition-colors duration-200"
+            to="/properties" 
+            className="flex items-center text-white hover:text-[#C49A6C] transition-colors duration-200"
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Back to Home
+            Back to Properties
           </Link>
         </div>
       </div>
@@ -58,8 +62,8 @@ function PropertyPage() {
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Property Header */}
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-navy mb-2">{property.title}</h1>
-          <div className="flex items-center text-cool-grey">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#262262] mb-2">{property.title}</h1>
+          <div className="flex items-center text-[#6b7280]">
             <svg className="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -96,61 +100,61 @@ function PropertyPage() {
           {/* Left Column - Details */}
           <div className="lg:col-span-2">
             {/* Quick Stats */}
-            <div className="flex flex-wrap gap-8 mb-8 pb-8 border-b border-border-grey">
+            <div className="flex flex-wrap gap-8 mb-8 pb-8 border-b border-[#D9D9D9]">
               <div className="flex items-center">
-                <svg className="w-6 h-6 text-gold mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-[#C49A6C] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
                 <div>
-                  <p className="font-bold text-navy">{property.bedrooms}</p>
-                  <p className="text-sm text-cool-grey">Bedrooms</p>
+                  <p className="font-bold text-[#262262]">{property.bedrooms}</p>
+                  <p className="text-sm text-[#6b7280]">Bedrooms</p>
                 </div>
               </div>
               <div className="flex items-center">
-                <svg className="w-6 h-6 text-gold mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-[#C49A6C] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
                 <div>
-                  <p className="font-bold text-navy">{property.bathrooms}</p>
-                  <p className="text-sm text-cool-grey">Bathrooms</p>
+                  <p className="font-bold text-[#262262]">{property.bathrooms}</p>
+                  <p className="text-sm text-[#6b7280]">Bathrooms</p>
                 </div>
               </div>
               <div className="flex items-center">
-                <svg className="w-6 h-6 text-gold mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-[#C49A6C] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                 </svg>
                 <div>
-                  <p className="font-bold text-navy">{property.area} sq ft</p>
-                  <p className="text-sm text-cool-grey">Area</p>
+                  <p className="font-bold text-[#262262]">{property.area} sq ft</p>
+                  <p className="text-sm text-[#6b7280]">Area</p>
                 </div>
               </div>
               <div className="flex items-center">
-                <svg className="w-6 h-6 text-gold mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-[#C49A6C] mr-2" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
                 <div>
-                  <p className="font-bold text-navy">{property.rating}</p>
-                  <p className="text-sm text-cool-grey">({property.reviews} reviews)</p>
+                  <p className="font-bold text-[#262262]">{property.rating}</p>
+                  <p className="text-sm text-[#6b7280]">({property.reviews} reviews)</p>
                 </div>
               </div>
             </div>
 
             {/* Description */}
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-navy mb-4">About this property</h2>
-              <p className="text-charcoal leading-relaxed">{property.description}</p>
+              <h2 className="text-2xl font-bold text-[#262262] mb-4">About this property</h2>
+              <p className="text-[#1f2937] leading-relaxed">{property.description}</p>
             </div>
 
             {/* Amenities */}
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-navy mb-4">Amenities</h2>
+              <h2 className="text-2xl font-bold text-[#262262] mb-4">Amenities</h2>
               <div className="grid grid-cols-2 gap-4">
                 {property.amenities.map((amenity, index) => (
                   <div key={index} className="flex items-center">
-                    <svg className="w-5 h-5 text-gold mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-[#C49A6C] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-charcoal">{amenity}</span>
+                    <span className="text-[#1f2937]">{amenity}</span>
                   </div>
                 ))}
               </div>
@@ -158,11 +162,11 @@ function PropertyPage() {
 
             {/* Nearby */}
             <div>
-              <h2 className="text-2xl font-bold text-navy mb-4">What's nearby</h2>
+              <h2 className="text-2xl font-bold text-[#262262] mb-4">What's nearby</h2>
               <ul className="space-y-3">
                 {property.nearby.map((item, index) => (
-                  <li key={index} className="flex items-center text-charcoal">
-                    <svg className="w-5 h-5 text-gold mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li key={index} className="flex items-center text-[#1f2937]">
+                    <svg className="w-5 h-5 text-[#C49A6C] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -175,49 +179,52 @@ function PropertyPage() {
 
           {/* Right Column - Booking Card */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg border border-border-grey p-6 sticky top-24">
+            <div className="bg-white rounded-2xl shadow-lg border border-[#D9D9D9] p-6 sticky top-24">
               <div className="mb-6">
-                <span className="text-3xl font-bold text-navy">KES {property.price.toLocaleString()}</span>
-                <span className="text-cool-grey"> / night</span>
+                <span className="text-3xl font-bold text-[#262262]">KES {property.price.toLocaleString()}</span>
+                <span className="text-[#6b7280]"> / night</span>
               </div>
 
-              <div className="space-y-4 mb-6">
-                <div>
-                  <label className="block text-sm font-medium text-charcoal mb-2">Check-in</label>
-                  <input 
-                    type="date" 
-                    className="w-full px-4 py-3 border border-border-grey rounded-lg focus:outline-none focus:border-gold"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-charcoal mb-2">Check-out</label>
-                  <input 
-                    type="date" 
-                    className="w-full px-4 py-3 border border-border-grey rounded-lg focus:outline-none focus:border-gold"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-charcoal mb-2">Guests</label>
-                  <select className="w-full px-4 py-3 border border-border-grey rounded-lg focus:outline-none focus:border-gold">
-                    <option>1 guest</option>
-                    <option>2 guests</option>
-                    <option>3 guests</option>
-                    <option>4 guests</option>
-                  </select>
-                </div>
-              </div>
-
-              <button className="w-full bg-gold text-navy font-bold py-4 rounded-lg hover:bg-gold/90 transition-all duration-200 shadow-md">
+              <Link
+                to={`/booking/${property.id}`}
+                className="block w-full bg-[#C49A6C] text-[#262262] font-bold py-4 rounded-xl hover:bg-[#b8895c] transition-all duration-200 shadow-md text-center"
+              >
                 Book Now
-              </button>
+              </Link>
 
-              <p className="text-center text-sm text-cool-grey mt-4">
+              <p className="text-center text-sm text-[#6b7280] mt-4">
                 You won't be charged yet
               </p>
+
+              <div className="mt-6 pt-6 border-t border-[#D9D9D9]">
+                <h4 className="font-semibold text-[#262262] mb-3">Why book with us?</h4>
+                <ul className="space-y-2 text-sm text-[#6b7280]">
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Best price guarantee
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Instant confirmation
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-4 h-4 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    24/7 customer support
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

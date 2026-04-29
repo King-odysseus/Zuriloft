@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { name: 'Home',       href: '#home' },
-  { name: 'Properties', href: '#properties' },
-  { name: 'Contact',    href: '#contact' },
+  { name: 'Home',       href: '/' },
+  { name: 'Properties', href: '/properties' },
+  { name: 'Contact',    href: '/contact' },
 ];
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -16,16 +18,20 @@ function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Check if we're on a page that needs white background navbar (not homepage)
+  const isHomePage = location.pathname === '/';
+  const needsWhiteNav = !isHomePage || scrolled;
+
   return (
     <nav className={`fixed w-full z-20 top-0 start-0 border-b transition-all duration-300 ${
-      scrolled
+      needsWhiteNav
         ? 'bg-white border-[#D9D9D9] shadow-sm'
         : 'bg-transparent border-transparent'
     }`}>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
         {/* Logo */}
-        <a href="#home" className="flex items-center space-x-3 rtl:space-x-reverse w-[200px]">
+        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse w-[200px]">
           <div className="w-8 h-8 bg-[#C49A6C] rounded-lg flex items-center justify-center">
             <svg className="w-5 h-5 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5}
@@ -33,31 +39,34 @@ function Navbar() {
             </svg>
           </div>
           <span className={`self-center text-xl font-bold whitespace-nowrap transition-colors duration-300 ${
-            scrolled ? 'text-[#262262]' : 'text-white'
+            needsWhiteNav ? 'text-[#262262]' : 'text-white'
           }`}>
             ZuriLofts
           </span>
-        </a>
+        </Link>
 
         {/* Right side: CTA buttons + hamburger */}
         <div className="flex items-center md:order-2 space-x-2 rtl:space-x-reverse w-[200px] justify-end">
           <button className={`hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold border-2 whitespace-nowrap transition-all duration-200 ${
-            scrolled
+            needsWhiteNav
               ? 'border-[#262262] text-[#262262] hover:bg-[#262262] hover:text-white'
               : 'border-white text-white hover:bg-white hover:text-[#262262]'
           }`}>
             Sign In
           </button>
-          <button className="hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold bg-[#C49A6C] text-[#262262] hover:bg-[#b8895c] transition-all duration-200 shadow-md whitespace-nowrap">
+          <Link 
+            to="/properties"
+            className="hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold bg-[#C49A6C] text-[#262262] hover:bg-[#b8895c] transition-all duration-200 shadow-md whitespace-nowrap"
+          >
             Book Now
-          </button>
+          </Link>
 
           {/* Hamburger */}
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             className={`inline-flex items-center p-2 w-10 h-10 justify-center rounded-lg md:hidden transition-colors duration-200 ${
-              scrolled
+              needsWhiteNav
                 ? 'text-[#262262] hover:bg-[#D9D9D9]'
                 : 'text-white hover:bg-white/10'
             }`}
@@ -85,32 +94,41 @@ function Navbar() {
           }`}
         >
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-0 border-b border-[#D9D9D9] bg-white shadow-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent md:shadow-none">
-            {navLinks.map((link, i) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`relative block py-2 px-3 md:p-0 rounded transition-colors duration-200 font-semibold group
-                    ${i === 0
-                      ? 'text-[#C49A6C]'
-                      : scrolled
-                        ? 'text-[#1f2937] hover:text-[#C49A6C]'
-                        : 'text-gray-700 md:text-white md:hover:text-[#C49A6C]'
-                    }`}
-                >
-                  {link.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C49A6C] group-hover:w-full transition-all duration-200 hidden md:block" />
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`relative block py-2 px-3 md:p-0 rounded transition-colors duration-200 font-semibold group
+                      ${isActive
+                        ? 'text-[#C49A6C]'
+                        : needsWhiteNav
+                          ? 'text-[#1f2937] hover:text-[#C49A6C]'
+                          : 'text-gray-700 md:text-white md:hover:text-[#C49A6C]'
+                      }`}
+                  >
+                    {link.name}
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-[#C49A6C] transition-all duration-200 hidden md:block ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`} />
+                  </Link>
+                </li>
+              );
+            })}
             {/* Mobile CTA buttons */}
             <li className="md:hidden pt-3 space-y-2 border-t border-[#D9D9D9] mt-2">
               <button className="w-full py-2.5 rounded-full font-semibold border-2 border-[#262262] text-[#262262] hover:bg-[#262262] hover:text-white transition-all duration-200">
                 Sign In
               </button>
-              <button className="w-full py-2.5 rounded-full font-semibold bg-[#C49A6C] text-[#262262] hover:bg-[#b8895c] transition-all duration-200">
+              <Link 
+                to="/properties"
+                className="block w-full py-2.5 rounded-full font-semibold bg-[#C49A6C] text-[#262262] hover:bg-[#b8895c] transition-all duration-200 text-center"
+                onClick={() => setMenuOpen(false)}
+              >
                 Book Now
-              </button>
+              </Link>
             </li>
           </ul>
         </div>
