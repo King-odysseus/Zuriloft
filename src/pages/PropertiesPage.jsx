@@ -258,24 +258,6 @@ function PropertiesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-[#262262]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Can't find what you're looking for?
-          </h2>
-          <p className="text-white/80 mb-8 text-lg">
-            Contact us directly and we'll help you find the perfect accommodation for your needs.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-block bg-[#C49A6C] text-[#262262] px-8 py-3 rounded-full font-semibold hover:bg-[#b8895c] transition-all duration-200 shadow-lg"
-          >
-            Get in Touch
-          </Link>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );
