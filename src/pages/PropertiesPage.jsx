@@ -57,7 +57,7 @@ function PropertiesPage() {
       
       {/* Hero Section */}
       <section className="bg-[#262262] pt-24 pb-20">
-        <div className="max-w-7xl mx-auto px-6 space-y-20">
+        <div className="max-w-7xl mx-auto px-6 pt-20 space-y-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Properties</h1>
             <p className="text-white/80 max-w-2xl mx-auto text-lg">
