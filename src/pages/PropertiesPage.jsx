@@ -67,7 +67,7 @@ function PropertiesPage() {
           </div>
 
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto pb-20">
             <div className="bg-white rounded-full shadow-xl px-2 py-2 flex items-center">
               <div className="flex-1 flex items-center px-5">
                 <svg className="w-5 h-5 text-[#C49A6C] mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
