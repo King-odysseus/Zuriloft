@@ -52,6 +52,8 @@ function PropertiesPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+
+      <div className="space-y-20">
       
       {/* Hero Section */}
       <section className="bg-[#262262] pt-24 pb-16">
@@ -290,6 +292,8 @@ function PropertiesPage() {
           )}
         </div>
       </section>
+
+      </div>
 
       <Footer />
     </div>
