@@ -56,8 +56,16 @@ function PropertiesPage() {
       <div className="space-y-20">
       
       {/* Hero Section */}
-      <section className="bg-[#262262] pt-24 pb-20">
-        <div className="max-w-7xl mx-auto px-6 pt-20 space-y-20">
+      <section className="relative bg-[#262262] pt-24 pb-20">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#262262]/80"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 pt-20 space-y-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Properties</h1>
             <p className="text-white/80 max-w-2xl mx-auto text-lg">
