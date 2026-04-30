@@ -70,7 +70,6 @@ function PropertyCard({ property }) {
                 <span className="text-xs">{value}</span>
               </div>
               <span className="text-xs text-[#6b7280]">{label}</span>
-              {i < arr.length - 1 && <div className="absolute w-px h-8 bg-[#D9D9D9]" />}
             </div>
           ))}
         </div>
