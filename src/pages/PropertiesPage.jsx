@@ -301,7 +301,7 @@ function PropertiesPage() {
 
       </div>
 
-      <div className="mt-[100px]">
+      <div className="mt-[150px]">
         <Footer />
       </div>
     </div>
