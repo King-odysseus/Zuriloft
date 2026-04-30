@@ -45,8 +45,6 @@ function PropertiesPage() {
     { key: 'all', label: 'All Properties' },
     { key: 'apartment', label: 'Apartments' },
     { key: 'studio', label: 'Studios' },
-    { key: 'penthouse', label: 'Penthouses' },
-    { key: 'house', label: 'Houses' },
   ];
 
   return (
