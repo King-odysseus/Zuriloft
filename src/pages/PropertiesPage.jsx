@@ -25,76 +25,6 @@ function PropertiesPage() {
       badge: 'Featured',
       type: 'apartment',
     },
-    {
-      id: '2',
-      image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80',
-      title: 'Luxury Studio Apartment',
-      location: 'Westlands, Nairobi',
-      price: 4500,
-      rating: 4.9,
-      reviews: 8,
-      bedrooms: 1,
-      bathrooms: 1,
-      area: 550,
-      badge: 'New',
-      type: 'studio',
-    },
-    {
-      id: '3',
-      image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80',
-      title: 'Modern 3-Bedroom Suite',
-      location: 'Lavington, Nairobi',
-      price: 8500,
-      rating: 4.8,
-      reviews: 15,
-      bedrooms: 3,
-      bathrooms: 2,
-      area: 1200,
-      badge: 'Popular',
-      type: 'apartment',
-    },
-    {
-      id: '4',
-      image: 'https://images.pexels.com/photos/27224283/pexels-photo-27224283.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Cozy Garden Apartment',
-      location: 'Karen, Nairobi',
-      price: 5200,
-      rating: 4.7,
-      reviews: 6,
-      bedrooms: 1,
-      bathrooms: 1,
-      area: 480,
-      badge: '',
-      type: 'studio',
-    },
-    {
-      id: '5',
-      image: 'https://images.pexels.com/photos/7219921/pexels-photo-7219921.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Executive Penthouse',
-      location: 'Upper Hill, Nairobi',
-      price: 12000,
-      rating: 5.0,
-      reviews: 20,
-      bedrooms: 3,
-      bathrooms: 3,
-      area: 1800,
-      badge: 'Luxury',
-      type: 'penthouse',
-    },
-    {
-      id: '6',
-      image: 'https://images.pexels.com/photos/29891537/pexels-photo-29891537.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Spacious Family Home',
-      location: 'Runda, Nairobi',
-      price: 9800,
-      rating: 4.9,
-      reviews: 10,
-      bedrooms: 4,
-      bathrooms: 3,
-      area: 2200,
-      badge: '',
-      type: 'house',
-    },
   ];
 
   // Filter properties
@@ -233,6 +163,25 @@ function PropertiesPage() {
                   <PropertyCard property={property} />
                 </Link>
               ))}
+              {/* Coming Soon Cards */}
+              <div className="group bg-white rounded-2xl shadow-md border border-[#D9D9D9] overflow-hidden">
+                <div className="aspect-[4/3] bg-[#D9D9D9] flex items-center justify-center">
+                  <span className="text-4xl">🏗️</span>
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-lg font-bold text-[#262262] mb-2">Coming Soon</h3>
+                  <p className="text-[#6b7280] text-sm">Exciting new property being added</p>
+                </div>
+              </div>
+              <div className="group bg-white rounded-2xl shadow-md border border-[#D9D9D9] overflow-hidden">
+                <div className="aspect-[4/3] bg-[#D9D9D9] flex items-center justify-center">
+                  <span className="text-4xl">🏗️</span>
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="text-lg font-bold text-[#262262] mb-2">Coming Soon</h3>
+                  <p className="text-[#6b7280] text-sm">Exciting new property being added</p>
+                </div>
+              </div>
             </div>
           ) : (
             <div className="text-center py-16">
