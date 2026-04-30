@@ -165,21 +165,29 @@ function PropertiesPage() {
               ))}
               {/* Coming Soon Cards */}
               <div className="group bg-white rounded-2xl shadow-md border border-[#D9D9D9] overflow-hidden">
-                <div className="aspect-[4/3] bg-[#D9D9D9] flex items-center justify-center">
-                  <span className="text-4xl">🏗️</span>
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-lg font-bold text-[#262262] mb-2">Coming Soon</h3>
-                  <p className="text-[#6b7280] text-sm">Exciting new property being added</p>
+                <div className="relative aspect-[4/3]">
+                  <img
+                    src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80"
+                    alt="Coming Soon"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-[#1f2937]/70 flex flex-col items-center justify-center">
+                    <h3 className="text-2xl font-bold text-white mb-2">Coming Soon</h3>
+                    <p className="text-white/80 text-sm">Exciting new property being added</p>
+                  </div>
                 </div>
               </div>
               <div className="group bg-white rounded-2xl shadow-md border border-[#D9D9D9] overflow-hidden">
-                <div className="aspect-[4/3] bg-[#D9D9D9] flex items-center justify-center">
-                  <span className="text-4xl">🏗️</span>
-                </div>
-                <div className="p-6 text-center">
-                  <h3 className="text-lg font-bold text-[#262262] mb-2">Coming Soon</h3>
-                  <p className="text-[#6b7280] text-sm">Exciting new property being added</p>
+                <div className="relative aspect-[4/3]">
+                  <img
+                    src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80"
+                    alt="Coming Soon"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-[#1f2937]/70 flex flex-col items-center justify-center">
+                    <h3 className="text-2xl font-bold text-white mb-2">Coming Soon</h3>
+                    <p className="text-white/80 text-sm">Exciting new property being added</p>
+                  </div>
                 </div>
               </div>
             </div>
