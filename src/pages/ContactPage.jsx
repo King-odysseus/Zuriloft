@@ -201,15 +201,6 @@ function ContactPage() {
                   alt="Contact Us"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-[#262262]/60 flex items-center justify-center p-8">
-                  <div className="text-center text-white">
-                    <svg className="w-12 h-12 text-[#C49A6C] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <h3 className="text-2xl font-bold mb-2">We'd Love to Hear From You</h3>
-                    <p className="text-white/80">Our team is ready to help you find the perfect stay in Nairobi.</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
