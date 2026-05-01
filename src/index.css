@@ -61,3 +61,31 @@ body {
   background-color: #ffffff;
   box-shadow: inset 4px 4px 8px #d9d9d9, inset -4px -4px 8px #ffffff;
 }
+
+/* Date Input Styling */
+.date-input {
+  color-scheme: light;
+  cursor: pointer;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  background-color: #C49A6C;
+  padding: 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.date-input::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+.date-input::-webkit-datetime-edit-fields-wrapper {
+  color: #1f2937;
+}
+
+.date-input::-webkit-datetime-edit-text {
+  color: #6b7280;
+  padding: 0 2px;
+}

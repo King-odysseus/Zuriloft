@@ -82,7 +82,7 @@ function BookingPage() {
             value={bookingData.checkIn}
             onChange={handleInputChange}
             min={new Date().toISOString().split('T')[0]}
-            className="w-full px-4 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors"
+            className="date-input w-full px-4 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors bg-white text-[#1f2937]"
             required
           />
         </div>
@@ -94,7 +94,7 @@ function BookingPage() {
             value={bookingData.checkOut}
             onChange={handleInputChange}
             min={bookingData.checkIn || new Date().toISOString().split('T')[0]}
-            className="w-full px-4 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors"
+            className="date-input w-full px-4 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors bg-white text-[#1f2937]"
             required
           />
         </div>
