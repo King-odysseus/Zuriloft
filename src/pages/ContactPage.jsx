@@ -77,13 +77,13 @@ function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 md:py-24 bg-[#D9D9D9]">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="neu-card p-8">
               <h2 className="text-2xl font-bold text-[#262262] mb-6">Send us a Message</h2>
-              
+
               {submitted && (
                 <div className="mb-6 p-4 bg-[#C49A6C]/20 border border-[#C49A6C] text-[#262262] rounded-xl">
                   Thank you for your message! We will get back to you within 2 hours.
@@ -100,7 +100,7 @@ function ContactPage() {
                       value={formData.firstName}
                       onChange={handleChange}
                       placeholder="John"
-                      className="w-full px-5 py-3 border border-[#D9D9D9] rounded-full focus:outline-none focus:border-[#C49A6C] transition-colors"
+                      className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937] placeholder-[#6b7280]"
                       required
                     />
                   </div>
@@ -112,7 +112,7 @@ function ContactPage() {
                       value={formData.lastName}
                       onChange={handleChange}
                       placeholder="Doe"
-                      className="w-full px-5 py-3 border border-[#D9D9D9] rounded-full focus:outline-none focus:border-[#C49A6C] transition-colors"
+                      className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937] placeholder-[#6b7280]"
                       required
                     />
                   </div>
@@ -126,7 +126,7 @@ function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
-                    className="w-full px-5 py-3 border border-[#D9D9D9] rounded-full focus:outline-none focus:border-[#C49A6C] transition-colors"
+                    className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937] placeholder-[#6b7280]"
                     required
                   />
                 </div>
@@ -139,7 +139,7 @@ function ContactPage() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+254 712 345 678"
-                    className="w-full px-5 py-3 border border-[#D9D9D9] rounded-full focus:outline-none focus:border-[#C49A6C] transition-colors"
+                    className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937] placeholder-[#6b7280]"
                   />
                 </div>
 
@@ -149,7 +149,7 @@ function ContactPage() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-5 py-3 border border-[#D9D9D9] rounded-full focus:outline-none focus:border-[#C49A6C] transition-colors bg-white"
+                    className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937]"
                   >
                     <option value="">Select a subject</option>
                     <option value="booking">Booking Inquiry</option>
@@ -167,7 +167,7 @@ function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us about your inquiry..."
-                    className="w-full px-5 py-3 border border-[#D9D9D9] rounded-2xl focus:outline-none focus:border-[#C49A6C] transition-colors h-32 resize-none"
+                    className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937] placeholder-[#6b7280] h-32 resize-none"
                     required
                   ></textarea>
                 </div>
@@ -175,7 +175,7 @@ function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#C49A6C] text-[#262262] font-semibold py-3 rounded-full hover:bg-[#b8895c] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full neu-btn text-[#262262] font-semibold py-3 rounded-full hover:shadow-[2px_2px_4px_#d9d9d9,-2px_-2px_4px_#ffffff] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <>
@@ -215,7 +215,7 @@ function ContactPage() {
               </div>
 
               {/* Business Hours */}
-              <div className="bg-white rounded-2xl shadow-md p-8">
+              <div className="neu-card p-8">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-[#C49A6C]/10 rounded-full flex items-center justify-center mr-4">
                     <svg className="w-6 h-6 text-[#C49A6C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -262,7 +262,7 @@ function ContactPage() {
               Located in the heart of Westlands, Nairobi. Visit our office to discuss your stay in person.
             </p>
           </div>
-          <div className="rounded-2xl overflow-hidden shadow-lg">
+          <div className="rounded-2xl overflow-hidden neu-card">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.19891802623!2d36.7203769!3d-1.3028611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1704067200000!5m2!1sen!2sus"
               width="100%"
