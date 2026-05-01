@@ -83,7 +83,7 @@ function PropertyPage() {
         <div className="mb-12">
           <div className="relative">
             <img
-              className="w-full h-[380px] object-cover rounded-2xl neu-card"
+              className="w-full h-[500px] object-cover rounded-2xl neu-card"
               src={property.images[featuredImage]}
               alt={property.title}
             />
