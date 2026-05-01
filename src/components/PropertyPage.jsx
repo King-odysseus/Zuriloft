@@ -8,15 +8,15 @@ function PropertyPage() {
   // Sample property data - in a real app, this would come from an API
   const property = {
     id: id || '1',
-    title: 'Premium Furnished Apartment',
+    title: 'Zuriloft - Serenity Apartments',
     location: 'Kilimani, Nairobi',
-    price: 8000,
+    price: 6300,
     rating: 5.0,
     reviews: 12,
     bedrooms: 2,
     bathrooms: 2,
     area: 950,
-    description: `Experience luxury living in the heart of Kilimani, one of Nairobi's most prestigious neighborhoods. This beautifully furnished apartment offers modern amenities, stunning views, and easy access to shopping centers, restaurants, and business districts.`,
+    description: `Experience luxury living in the heart of Kilimani, one of Nairobi's most prestigious neighborhoods. This beautifully furnished apartment offers modern amenities, stunning views, and easy access to shopping centers, restaurants, and business districts. Perfect for business travelers and tourists seeking a comfortable short-term stay.`,
     images: [
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
       'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80',
