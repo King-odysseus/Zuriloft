@@ -75,22 +75,22 @@ function PropertyPage() {
         {/* Image Gallery */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
           <div className="md:col-span-2">
-            <img 
-              src={property.images[0]} 
+            <img
+              src={property.images[0]}
               alt={property.title}
-              className="w-full h-[400px] object-cover rounded-2xl"
+              className="w-full h-[400px] object-cover rounded-2xl neu-card"
             />
           </div>
           <div className="space-y-4">
-            <img 
-              src={property.images[1]} 
+            <img
+              src={property.images[1]}
               alt="Interior"
-              className="w-full h-[192px] object-cover rounded-2xl"
+              className="w-full h-[192px] object-cover rounded-2xl neu-card"
             />
-            <img 
-              src={property.images[2]} 
+            <img
+              src={property.images[2]}
               alt="Kitchen"
-              className="w-full h-[192px] object-cover rounded-2xl"
+              className="w-full h-[192px] object-cover rounded-2xl neu-card"
             />
           </div>
         </div>
@@ -179,7 +179,7 @@ function PropertyPage() {
 
           {/* Right Column - Booking Card */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg border border-[#D9D9D9] p-6 sticky top-24">
+            <div className="neu-card p-6 sticky top-24">
               <div className="mb-6">
                 <span className="text-3xl font-bold text-[#262262]">KES {property.price.toLocaleString()}</span>
                 <span className="text-[#6b7280]"> / night</span>
@@ -187,7 +187,7 @@ function PropertyPage() {
 
               <Link
                 to={`/booking/${property.id}`}
-                className="block w-full bg-[#C49A6C] text-[#262262] font-bold py-4 rounded-xl hover:bg-[#b8895c] transition-all duration-200 shadow-md text-center"
+                className="block w-full neu-btn text-[#262262] font-bold py-4 rounded-xl hover:shadow-[2px_2px_4px_#d9d9d9,-2px_-2px_4px_#ffffff] transition-all duration-200 text-center"
               >
                 Book Now
               </Link>
