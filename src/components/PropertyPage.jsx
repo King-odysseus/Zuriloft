@@ -6,6 +6,7 @@ import Footer from './Footer';
 function PropertyPage() {
   const { id } = useParams();
   const [featuredImage, setFeaturedImage] = useState(0);
+  const [thumbStart, setThumbStart] = useState(0);
 
   // Sample property data - in a real app, this would come from an API
   const property = {
@@ -207,24 +208,47 @@ function PropertyPage() {
                   </svg>
                 </button>
               </div>
-              <div className="grid grid-cols-5 gap-3 mt-4">
-                {property.images.slice(0, 5).map((img, i) => (
-                  <div
-                    key={i}
-                    onClick={() => setFeaturedImage(i)}
-                    className={`cursor-pointer overflow-hidden rounded-xl transition-all duration-200 ${
-                      featuredImage === i
-                        ? 'ring-2 ring-[#C49A6C] scale-95'
-                        : 'hover:scale-105 opacity-70 hover:opacity-100'
-                    }`}
-                  >
-                    <img
-                      className="w-full h-20 object-cover rounded-xl"
-                      src={img}
-                      alt={`${property.title} ${i + 1}`}
-                    />
-                  </div>
-                ))}
+              <div className="flex items-center gap-2 mt-4">
+                <button
+                  onClick={() => setThumbStart((prev) => Math.max(0, prev - 1))}
+                  disabled={thumbStart === 0}
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-[#D9D9D9] hover:bg-[#D9D9D9] transition-colors disabled:opacity-30 disabled:cursor-not-allowed flex-shrink-0"
+                >
+                  <svg className="w-4 h-4 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <div className="grid grid-cols-5 gap-3 flex-1">
+                  {property.images.slice(thumbStart, thumbStart + 5).map((img, i) => {
+                    const actualIndex = thumbStart + i;
+                    return (
+                      <div
+                        key={actualIndex}
+                        onClick={() => setFeaturedImage(actualIndex)}
+                        className={`cursor-pointer overflow-hidden rounded-xl transition-all duration-200 ${
+                          featuredImage === actualIndex
+                            ? 'ring-2 ring-[#C49A6C] scale-95'
+                            : 'hover:scale-105 opacity-70 hover:opacity-100'
+                        }`}
+                      >
+                        <img
+                          className="w-full h-20 object-cover rounded-xl"
+                          src={img}
+                          alt={`${property.title} ${actualIndex + 1}`}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+                <button
+                  onClick={() => setThumbStart((prev) => Math.min(property.images.length - 5, prev + 1))}
+                  disabled={thumbStart >= property.images.length - 5}
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-[#D9D9D9] hover:bg-[#D9D9D9] transition-colors disabled:opacity-30 disabled:cursor-not-allowed flex-shrink-0"
+                >
+                  <svg className="w-4 h-4 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
