@@ -8,6 +8,7 @@ function PropertiesPage() {
   const [filter, setFilter] = useState('all');
   const [priceRange, setPriceRange] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [availableOnly, setAvailableOnly] = useState(false);
 
   // Sample properties data
   const properties = [
@@ -24,6 +25,7 @@ function PropertiesPage() {
       area: 950,
       badge: 'Featured',
       type: 'apartment',
+      available: true,
     },
   ];
 
@@ -38,7 +40,9 @@ function PropertiesPage() {
     else if (priceRange === 'mid') matchesPrice = property.price >= 5000 && property.price < 8000;
     else if (priceRange === 'high') matchesPrice = property.price >= 8000;
 
-    return matchesType && matchesSearch && matchesPrice;
+    const matchesAvailability = !availableOnly || property.available;
+
+    return matchesType && matchesSearch && matchesPrice && matchesAvailability;
   });
 
   const filterButtons = [
@@ -124,18 +128,29 @@ function PropertiesPage() {
             </div>
 
             {/* Price Range Filter */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-[#6b7280]">Price:</span>
-              <select
-                value={priceRange}
-                onChange={(e) => setPriceRange(e.target.value)}
-                className="px-4 py-2 rounded-full text-sm font-medium bg-[#D9D9D9] text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#C49A6C] cursor-pointer"
-              >
-                <option value="all">All Prices</option>
-                <option value="low">Under KES 5,000</option>
-                <option value="mid">KES 5,000 - 8,000</option>
-                <option value="high">Above KES 8,000</option>
-              </select>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-[#6b7280]">Price:</span>
+                <select
+                  value={priceRange}
+                  onChange={(e) => setPriceRange(e.target.value)}
+                  className="px-4 py-2 rounded-full text-sm font-medium bg-[#D9D9D9] text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#C49A6C] cursor-pointer"
+                >
+                  <option value="all">All Prices</option>
+                  <option value="low">Under KES 5,000</option>
+                  <option value="mid">KES 5,000 - 8,000</option>
+                  <option value="high">Above KES 8,000</option>
+                </select>
+              </div>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={availableOnly}
+                  onChange={(e) => setAvailableOnly(e.target.checked)}
+                  className="w-4 h-4 text-[#C49A6C] border-[#D9D9D9] rounded focus:ring-[#C49A6C] cursor-pointer"
+                />
+                <span className="text-sm text-[#1f2937] font-medium">Available to Book</span>
+              </label>
             </div>
           </div>
         </div>
@@ -149,12 +164,13 @@ function PropertiesPage() {
             <p className="text-[#6b7280]">
               Showing <span className="font-semibold text-[#262262]">{filteredProperties.length}</span> properties
             </p>
-            {(filter !== 'all' || priceRange !== 'all' || searchQuery) && (
+            {(filter !== 'all' || priceRange !== 'all' || searchQuery || availableOnly) && (
               <button
                 onClick={() => {
                   setFilter('all');
                   setPriceRange('all');
                   setSearchQuery('');
+                  setAvailableOnly(false);
                 }}
                 className="text-sm text-[#C49A6C] hover:text-[#262262] font-medium transition-colors"
               >
@@ -289,6 +305,7 @@ function PropertiesPage() {
                   setFilter('all');
                   setPriceRange('all');
                   setSearchQuery('');
+                  setAvailableOnly(false);
                 }}
                 className="bg-[#C49A6C] text-[#262262] px-6 py-2 rounded-full font-semibold hover:bg-[#b8895c] transition-all duration-200"
               >
