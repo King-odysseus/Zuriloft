@@ -238,7 +238,7 @@ function PropertyPage() {
 
           {/* Right Column - Booking Card */}
           <div className="lg:col-span-1">
-            <div className="neu-card p-6 sticky top-24">
+            <div className="neu-card p-6 pt-[50px] sticky top-24">
               <div className="mb-6">
                 <span className="text-3xl font-bold text-[#262262]">KES {property.price.toLocaleString()}</span>
                 <span className="text-[#6b7280]"> / night</span>
