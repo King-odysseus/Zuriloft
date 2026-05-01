@@ -47,13 +47,6 @@ function Navbar() {
 
         {/* Right side: CTA buttons + hamburger */}
         <div className="flex items-center md:order-2 space-x-2 rtl:space-x-reverse w-[200px] justify-end">
-          <button className={`hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold border-2 whitespace-nowrap transition-all duration-200 ${
-            needsWhiteNav
-              ? 'border-[#262262] text-[#262262] hover:bg-[#262262] hover:text-white'
-              : 'border-white text-white hover:bg-white hover:text-[#262262]'
-          }`}>
-            Sign In
-          </button>
           <Link 
             to="/properties"
             className="hidden md:inline-flex px-5 py-2 rounded-full text-sm font-semibold bg-[#C49A6C] text-[#262262] hover:bg-[#b8895c] transition-all duration-200 shadow-md whitespace-nowrap"
@@ -119,9 +112,6 @@ function Navbar() {
             })}
             {/* Mobile CTA buttons */}
             <li className="md:hidden pt-3 space-y-2 border-t border-[#D9D9D9] mt-2">
-              <button className="w-full py-2.5 rounded-full font-semibold border-2 border-[#262262] text-[#262262] hover:bg-[#262262] hover:text-white transition-all duration-200">
-                Sign In
-              </button>
               <Link 
                 to="/properties"
                 className="block w-full py-2.5 rounded-full font-semibold bg-[#C49A6C] text-[#262262] hover:bg-[#b8895c] transition-all duration-200 text-center"
