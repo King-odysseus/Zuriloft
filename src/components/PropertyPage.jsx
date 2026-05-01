@@ -59,7 +59,7 @@ function PropertyPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-6 py-[70px]">
         {/* Property Header */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-[#262262] mb-2">{property.title}</h1>
