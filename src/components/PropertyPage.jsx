@@ -224,7 +224,9 @@ function PropertyPage() {
         </div>
       </div>
 
-      <Footer />
+      <div className="mt-[150px]">
+        <Footer />
+      </div>
     </div>
   );
 }
