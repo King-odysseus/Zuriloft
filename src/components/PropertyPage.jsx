@@ -180,6 +180,53 @@ function PropertyPage() {
                 ))}
               </ul>
             </div>
+
+            {/* Featured Image Gallery */}
+            <div className="mt-12">
+              <h2 className="text-2xl font-bold text-[#262262] mb-6">Gallery</h2>
+              <div className="relative">
+                <img
+                  className="w-full h-[320px] object-cover rounded-2xl neu-card"
+                  src={property.images[featuredImage]}
+                  alt={property.title}
+                />
+                <button
+                  onClick={() => setFeaturedImage((prev) => (prev - 1 + property.images.length) % property.images.length)}
+                  className="absolute top-1/2 -translate-y-1/2 left-3 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors shadow-md"
+                >
+                  <svg className="w-5 h-5 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setFeaturedImage((prev) => (prev + 1) % property.images.length)}
+                  className="absolute top-1/2 -translate-y-1/2 right-3 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors shadow-md"
+                >
+                  <svg className="w-5 h-5 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+              <div className="grid grid-cols-3 md:grid-cols-5 gap-3 mt-4">
+                {property.images.map((img, i) => (
+                  <div
+                    key={i}
+                    onClick={() => setFeaturedImage(i)}
+                    className={`cursor-pointer overflow-hidden rounded-xl transition-all duration-200 ${
+                      featuredImage === i
+                        ? 'ring-2 ring-[#C49A6C] scale-95'
+                        : 'hover:scale-105 opacity-70 hover:opacity-100'
+                    }`}
+                  >
+                    <img
+                      className="w-full h-20 object-cover rounded-xl"
+                      src={img}
+                      alt={`${property.title} ${i + 1}`}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Right Column - Booking Card */}
@@ -225,39 +272,6 @@ function PropertyPage() {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Featured Image Gallery */}
-      <div className="max-w-7xl mx-auto px-6 mb-12">
-        <h2 className="text-2xl font-bold text-[#262262] mb-6">Gallery</h2>
-        <div className="grid gap-4">
-          <div>
-            <img
-              className="h-auto max-w-full rounded-2xl w-full max-h-[500px] object-cover neu-card"
-              src={property.images[featuredImage]}
-              alt={property.title}
-            />
-          </div>
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-            {property.images.map((img, i) => (
-              <div
-                key={i}
-                onClick={() => setFeaturedImage(i)}
-                className={`cursor-pointer overflow-hidden rounded-xl transition-all duration-200 ${
-                  featuredImage === i
-                    ? 'ring-2 ring-[#C49A6C] scale-95'
-                    : 'hover:scale-105'
-                }`}
-              >
-                <img
-                  className="h-auto max-w-full rounded-xl w-full h-24 object-cover"
-                  src={img}
-                  alt={`${property.title} ${i + 1}`}
-                />
-              </div>
-            ))}
           </div>
         </div>
       </div>
