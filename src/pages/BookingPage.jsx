@@ -20,6 +20,7 @@ function BookingPage() {
     email: '',
     phone: '',
     specialRequests: '',
+    checkInTime: '',
     paymentMethod: 'card',
   });
 
@@ -115,6 +116,17 @@ function BookingPage() {
             </option>
           ))}
         </select>
+      </div>
+
+      <div>
+        <label className="block text-sm font-semibold text-[#1f2937] mb-2">Estimated Check-in Time</label>
+        <input
+          type="time"
+          name="checkInTime"
+          value={bookingData.checkInTime}
+          onChange={handleInputChange}
+          className="date-input w-full px-4 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors bg-white text-[#1f2937]"
+        />
       </div>
 
       {nights > 0 && (
