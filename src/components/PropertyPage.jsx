@@ -27,6 +27,7 @@ function PropertyPage() {
       'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
       'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+      'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80',
     ],
     amenities: [
       'High-Speed WiFi',
@@ -210,9 +211,8 @@ function PropertyPage() {
               </div>
               <div className="flex items-center gap-2 mt-4">
                 <button
-                  onClick={() => setThumbStart((prev) => Math.max(0, prev - 1))}
-                  disabled={thumbStart === 0}
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-[#D9D9D9] hover:bg-[#D9D9D9] transition-colors disabled:opacity-30 disabled:cursor-not-allowed flex-shrink-0"
+                  onClick={() => setThumbStart((prev) => prev === 0 ? property.images.length - 5 : prev - 1)}
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-[#D9D9D9] hover:bg-[#D9D9D9] transition-colors flex-shrink-0"
                 >
                   <svg className="w-4 h-4 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -241,9 +241,8 @@ function PropertyPage() {
                   })}
                 </div>
                 <button
-                  onClick={() => setThumbStart((prev) => Math.min(property.images.length - 5, prev + 1))}
-                  disabled={thumbStart >= property.images.length - 5}
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-[#D9D9D9] hover:bg-[#D9D9D9] transition-colors disabled:opacity-30 disabled:cursor-not-allowed flex-shrink-0"
+                  onClick={() => setThumbStart((prev) => prev >= property.images.length - 5 ? 0 : prev + 1)}
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-[#D9D9D9] hover:bg-[#D9D9D9] transition-colors flex-shrink-0"
                 >
                   <svg className="w-4 h-4 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
