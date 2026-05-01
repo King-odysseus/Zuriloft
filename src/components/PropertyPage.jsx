@@ -1,9 +1,11 @@
 import { useParams, Link } from 'react-router-dom';
+import { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
 function PropertyPage() {
   const { id } = useParams();
+  const [featuredImage, setFeaturedImage] = useState(0);
 
   // Sample property data - in a real app, this would come from an API
   const property = {
@@ -21,6 +23,9 @@ function PropertyPage() {
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
       'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80',
       'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80',
+      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
+      'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
     ],
     amenities: [
       'High-Speed WiFi',
@@ -220,6 +225,39 @@ function PropertyPage() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Featured Image Gallery */}
+      <div className="max-w-7xl mx-auto px-6 mb-12">
+        <h2 className="text-2xl font-bold text-[#262262] mb-6">Gallery</h2>
+        <div className="grid gap-4">
+          <div>
+            <img
+              className="h-auto max-w-full rounded-2xl w-full max-h-[500px] object-cover neu-card"
+              src={property.images[featuredImage]}
+              alt={property.title}
+            />
+          </div>
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
+            {property.images.map((img, i) => (
+              <div
+                key={i}
+                onClick={() => setFeaturedImage(i)}
+                className={`cursor-pointer overflow-hidden rounded-xl transition-all duration-200 ${
+                  featuredImage === i
+                    ? 'ring-2 ring-[#C49A6C] scale-95'
+                    : 'hover:scale-105'
+                }`}
+              >
+                <img
+                  className="h-auto max-w-full rounded-xl w-full h-24 object-cover"
+                  src={img}
+                  alt={`${property.title} ${i + 1}`}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
