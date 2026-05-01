@@ -155,7 +155,7 @@ function PropertiesPage() {
       </section>
 
       {/* Properties Grid */}
-      <section className="py-12 neu-bg">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           {/* Results Count */}
           <div className="mb-6 flex items-center justify-between">
