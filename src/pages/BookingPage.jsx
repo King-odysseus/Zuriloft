@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import 'cally';
 
 function BookingPage() {
   const { id } = useParams();
@@ -9,6 +10,10 @@ function BookingPage() {
   const [step, setStep] = useState(1);
   const [isProcessing, setIsProcessing] = useState(false);
   const [bookingComplete, setBookingComplete] = useState(false);
+
+  // Refs for calendar-date elements
+  const checkInRef = useRef(null);
+  const checkOutRef = useRef(null);
 
   // Form states
   const [bookingData, setBookingData] = useState({
@@ -26,7 +31,7 @@ function BookingPage() {
   // Sample property data
   const property = {
     id: id || '1',
-    title: 'Premium Furnished Apartment',
+    title: 'Zuriloft - Serenity Apartments',
     location: 'Kilimani, Nairobi',
     price: 6300,
     image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
@@ -52,6 +57,27 @@ function BookingPage() {
   const serviceFee = Math.round(subtotal * 0.12);
   const total = subtotal + cleaningFee + serviceFee;
 
+  // Listen for calendar-date change events
+  useEffect(() => {
+    const checkInEl = checkInRef.current;
+    const checkOutEl = checkOutRef.current;
+
+    const handleCheckInChange = (e) => {
+      setBookingData((prev) => ({ ...prev, checkIn: e.target.value }));
+    };
+    const handleCheckOutChange = (e) => {
+      setBookingData((prev) => ({ ...prev, checkOut: e.target.value }));
+    };
+
+    checkInEl?.addEventListener('change', handleCheckInChange);
+    checkOutEl?.addEventListener('change', handleCheckOutChange);
+
+    return () => {
+      checkInEl?.removeEventListener('change', handleCheckInChange);
+      checkOutEl?.removeEventListener('change', handleCheckOutChange);
+    };
+  }, []);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setBookingData({ ...bookingData, [name]: value });
@@ -76,27 +102,27 @@ function BookingPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-semibold text-[#1f2937] mb-2">Check-in Date *</label>
-          <input
-            type="date"
-            name="checkIn"
-            value={bookingData.checkIn}
-            onChange={handleInputChange}
-            min={new Date().toISOString().split('T')[0]}
-            className="w-full px-4 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors"
-            required
-          />
+          <calendar-date
+            ref={checkInRef}
+            className="cally neu-card block w-full"
+            style={{ '--cally-bg': '#ffffff', borderRadius: '1rem' }}
+          >
+            <svg aria-label="Previous" className="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M15.75 19.5 8.25 12l7.5-7.5"></path></svg>
+            <svg aria-label="Next" className="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path></svg>
+            <calendar-month></calendar-month>
+          </calendar-date>
         </div>
         <div>
           <label className="block text-sm font-semibold text-[#1f2937] mb-2">Check-out Date *</label>
-          <input
-            type="date"
-            name="checkOut"
-            value={bookingData.checkOut}
-            onChange={handleInputChange}
-            min={bookingData.checkIn || new Date().toISOString().split('T')[0]}
-            className="w-full px-4 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors"
-            required
-          />
+          <calendar-date
+            ref={checkOutRef}
+            className="cally neu-card block w-full"
+            style={{ '--cally-bg': '#ffffff', borderRadius: '1rem' }}
+          >
+            <svg aria-label="Previous" className="fill-current size-4" slot="previous" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M15.75 19.5 8.25 12l7.5-7.5"></path></svg>
+            <svg aria-label="Next" className="fill-current size-4" slot="next" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="m8.25 4.5 7.5 7.5-7.5 7.5"></path></svg>
+            <calendar-month></calendar-month>
+          </calendar-date>
         </div>
       </div>
 
@@ -131,7 +157,7 @@ function BookingPage() {
       <button
         onClick={() => setStep(2)}
         disabled={!bookingData.checkIn || !bookingData.checkOut || nights <= 0}
-        className="w-full bg-[#262262] text-white py-3 rounded-full font-semibold hover:bg-[#262262]/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full neu-btn text-[#262262] py-3 rounded-full font-semibold hover:shadow-[2px_2px_4px_#d9d9d9,-2px_-2px_4px_#ffffff] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         Continue
       </button>
@@ -222,7 +248,7 @@ function BookingPage() {
       <button
         onClick={() => setStep(3)}
         disabled={!bookingData.firstName || !bookingData.lastName || !bookingData.email || !bookingData.phone}
-        className="w-full bg-[#262262] text-white py-3 rounded-full font-semibold hover:bg-[#262262]/90 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full neu-btn text-[#262262] py-3 rounded-full font-semibold hover:shadow-[2px_2px_4px_#d9d9d9,-2px_-2px_4px_#ffffff] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         Continue to Payment
       </button>
@@ -331,7 +357,7 @@ function BookingPage() {
         <button
           type="submit"
           disabled={isProcessing}
-          className="w-full bg-[#C49A6C] text-[#262262] py-4 rounded-full font-bold hover:bg-[#b8895c] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+          className="w-full neu-btn text-[#262262] py-4 rounded-full font-bold hover:shadow-[2px_2px_4px_#d9d9d9,-2px_-2px_4px_#ffffff] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
         >
           {isProcessing ? (
             <>
@@ -395,7 +421,7 @@ function BookingPage() {
             <div className="space-y-3">
               <button
                 onClick={() => navigate('/')}
-                className="w-full bg-[#C49A6C] text-[#262262] py-3 rounded-full font-semibold hover:bg-[#b8895c] transition-all duration-200"
+                className="w-full neu-btn text-[#262262] py-3 rounded-full font-semibold hover:shadow-[2px_2px_4px_#d9d9d9,-2px_-2px_4px_#ffffff] transition-all duration-200"
               >
                 Return to Home
               </button>
@@ -453,7 +479,7 @@ function BookingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Left Column - Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl shadow-lg border border-[#D9D9D9] p-8">
+              <div className="neu-card p-8">
                 {step === 1 && renderStep1()}
                 {step === 2 && renderStep2()}
                 {step === 3 && renderStep3()}
@@ -462,7 +488,7 @@ function BookingPage() {
 
             {/* Right Column - Property Summary */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl shadow-lg border border-[#D9D9D9] p-6 sticky top-24">
+              <div className="neu-card p-6 sticky top-24">
                 <Link to={`/property/${property.id}`} className="block">
                   <img
                     src={property.image}
