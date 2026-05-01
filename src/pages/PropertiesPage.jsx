@@ -125,15 +125,16 @@ function PropertiesPage() {
                   {label}
                 </button>
               ))}
-              <label className="flex items-center gap-2 cursor-pointer ml-2">
-                <input
-                  type="checkbox"
-                  checked={availableOnly}
-                  onChange={(e) => setAvailableOnly(e.target.checked)}
-                  className="w-4 h-4 text-[#C49A6C] border-[#D9D9D9] rounded focus:ring-[#C49A6C] cursor-pointer"
-                />
-                <span className="text-sm text-[#1f2937] font-medium">Available to Book</span>
-              </label>
+              <button
+                onClick={() => setAvailableOnly(!availableOnly)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ml-2 ${
+                  availableOnly
+                    ? 'neu-btn-active text-[#C49A6C]'
+                    : 'neu-btn text-[#1f2937] hover:text-[#262262]'
+                }`}
+              >
+                Available to Book
+              </button>
             </div>
 
             {/* Price Range Filter */}

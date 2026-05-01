@@ -47,3 +47,17 @@ body {
 .neu-card-hover:hover {
   box-shadow: 6px 6px 12px #d9d9d9, -6px -6px 12px #ffffff;
 }
+
+.neu-btn {
+  background-color: #ffffff;
+  box-shadow: 4px 4px 8px #d9d9d9, -4px -4px 8px #ffffff;
+}
+
+.neu-btn:hover {
+  box-shadow: 2px 2px 4px #d9d9d9, -2px -2px 4px #ffffff;
+}
+
+.neu-btn-active {
+  background-color: #ffffff;
+  box-shadow: inset 4px 4px 8px #d9d9d9, inset -4px -4px 8px #ffffff;
+}
