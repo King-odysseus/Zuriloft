@@ -66,8 +66,16 @@ function ContactPage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-[#262262] pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-6 text-center">
+      <section className="relative pt-24 pb-16">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80"
+            alt="Contact Hero Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#262262]/70"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
           <p className="text-white/80 max-w-2xl mx-auto text-lg">
             Have questions about our apartments? We would love to hear from you.
