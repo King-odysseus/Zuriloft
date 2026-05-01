@@ -167,7 +167,6 @@ function PropertyPage() {
                 </svg>
                 <div>
                   <p className="font-bold text-[#262262]">{property.rating}</p>
-                  <p className="text-sm text-[#6b7280]">({property.reviews} reviews)</p>
                 </div>
               </div>
             </div>
