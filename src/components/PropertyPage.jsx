@@ -211,7 +211,11 @@ function PropertyPage() {
               </div>
               <div className="flex items-center gap-2 mt-4">
                 <button
-                  onClick={() => setThumbStart((prev) => prev === 0 ? property.images.length - 5 : prev - 1)}
+                  onClick={() => setThumbStart((prev) => {
+                    const next = prev === 0 ? property.images.length - 5 : prev - 1;
+                    setFeaturedImage(next);
+                    return next;
+                  })}
                   className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-[#D9D9D9] hover:bg-[#D9D9D9] transition-colors flex-shrink-0"
                 >
                   <svg className="w-4 h-4 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -241,7 +245,11 @@ function PropertyPage() {
                   })}
                 </div>
                 <button
-                  onClick={() => setThumbStart((prev) => prev >= property.images.length - 5 ? 0 : prev + 1)}
+                  onClick={() => setThumbStart((prev) => {
+                    const next = prev >= property.images.length - 5 ? 0 : prev + 1;
+                    setFeaturedImage(next);
+                    return next;
+                  })}
                   className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-[#D9D9D9] hover:bg-[#D9D9D9] transition-colors flex-shrink-0"
                 >
                   <svg className="w-4 h-4 text-[#262262]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
