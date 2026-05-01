@@ -15,7 +15,7 @@ function PropertiesPage() {
     {
       id: '1',
       image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80',
-      title: 'Premium Furnished Apartment',
+      title: 'Zuriloft - Serenity Apartments',
       location: 'Kilimani, Nairobi',
       price: 6300,
       rating: 5.0,
