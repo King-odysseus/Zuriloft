@@ -40,7 +40,7 @@ Fallback:  Helvetica, Arial, sans-serif
 | Element          | Size       | Weight | Color          | Notes                          |
 |------------------|------------|--------|----------------|--------------------------------|
 | Hero Heading     | 3rem–4rem  | 800    | White          | On dark/blurred image overlay  |
-| Section Heading  | 2rem–2.5rem| 700    | Navy `#1e3a8a` | Left-aligned or centered       |
+| Section Heading  | 2rem–2.5rem| 700    | Deep Indigo `#262262` | Left-aligned or centered       |
 | Card Title       | 1.125rem   | 600    | Charcoal       |                                |
 | Body Text        | 1rem       | 400    | Charcoal       | Line height 1.6                |
 | Muted / Caption  | 0.875rem   | 400    | Cool Grey      |                                |
@@ -201,7 +201,7 @@ All buttons: `rounded-full`, `px-6 py-2.5`, `font-semibold`, `transition-all`
 - **Form validation**: Native HTML5 validation with `required` attributes
 
 ### Footer
-- Navy background `#1e3a8a`
+- Deep Indigo `#262262` background
 - White text for links and headings
 - Gold for link hover states and logo accent
 - Minimal: copyright left, social icons right

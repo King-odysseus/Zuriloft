@@ -99,7 +99,7 @@ function Navbar() {
                         ? 'text-[#C49A6C]'
                         : needsWhiteNav
                           ? 'text-[#1f2937] hover:text-[#C49A6C]'
-                          : 'text-gray-700 md:text-white md:hover:text-[#C49A6C]'
+                          : 'text-[#1f2937] md:text-white md:hover:text-[#C49A6C]'
                       }`}
                   >
                     {link.name}

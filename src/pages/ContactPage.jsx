@@ -85,7 +85,7 @@ function ContactPage() {
               <h2 className="text-2xl font-bold text-[#262262] mb-6">Send us a Message</h2>
               
               {submitted && (
-                <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-xl">
+                <div className="mb-6 p-4 bg-[#C49A6C]/20 border border-[#C49A6C] text-[#262262] rounded-xl">
                   Thank you for your message! We will get back to you within 2 hours.
                 </div>
               )}
