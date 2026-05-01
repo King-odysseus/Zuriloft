@@ -118,8 +118,8 @@ function PropertiesPage() {
                   onClick={() => setFilter(key)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     filter === key
-                      ? 'bg-[#262262] text-white'
-                      : 'bg-[#D9D9D9] text-[#1f2937] hover:bg-[#C49A6C] hover:text-[#262262]'
+                      ? 'neu-btn-active text-[#C49A6C]'
+                      : 'neu-btn text-[#1f2937] hover:text-[#262262]'
                   }`}
                 >
                   {label}
@@ -143,7 +143,7 @@ function PropertiesPage() {
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value)}
-                className="px-4 py-2 rounded-full text-sm font-medium bg-[#D9D9D9] text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#C49A6C] cursor-pointer"
+                className="px-4 py-2 rounded-full text-sm font-medium neu-btn text-[#1f2937] focus:outline-none cursor-pointer"
               >
                 <option value="all">All Prices</option>
                 <option value="low">Under KES 5,000</option>
