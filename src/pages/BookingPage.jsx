@@ -433,10 +433,17 @@ function BookingPage() {
         <div className="max-w-7xl mx-auto px-6">
           {/* Progress Steps */}
           <div className="max-w-2xl mx-auto mb-8">
-            <div className="flex items-center justify-center">
+            <div className="flex items-start justify-center">
               {[1, 2, 3].map((s, i) => (
-                <div key={s} className="flex flex-col items-center">
-                  <div className="flex items-center">
+                <div key={s} className="flex items-center">
+                  {i > 0 && (
+                    <div
+                      className={`w-16 h-1 mx-2 transition-colors ${
+                        step > i ? 'bg-[#C49A6C]' : 'bg-[#D9D9D9]'
+                      }`}
+                    />
+                  )}
+                  <div className="flex flex-col items-center">
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-colors ${
                         step >= s
@@ -446,17 +453,10 @@ function BookingPage() {
                     >
                       {s}
                     </div>
-                    {i < 2 && (
-                      <div
-                        className={`w-16 h-1 mx-2 transition-colors ${
-                          step > s ? 'bg-[#C49A6C]' : 'bg-[#D9D9D9]'
-                        }`}
-                      />
-                    )}
+                    <span className="text-xs text-[#6b7280] mt-2 whitespace-nowrap">
+                      {s === 1 ? 'Dates' : s === 2 ? 'Details' : 'Payment'}
+                    </span>
                   </div>
-                  <span className="text-xs text-[#6b7280] mt-2">{
-                    s === 1 ? 'Dates' : s === 2 ? 'Details' : 'Payment'
-                  }</span>
                 </div>
               ))}
             </div>
