@@ -207,8 +207,8 @@ function PropertyPage() {
                   </svg>
                 </button>
               </div>
-              <div className="grid grid-cols-3 md:grid-cols-5 gap-3 mt-4">
-                {property.images.map((img, i) => (
+              <div className="grid grid-cols-5 gap-3 mt-4">
+                {property.images.slice(0, 5).map((img, i) => (
                   <div
                     key={i}
                     onClick={() => setFeaturedImage(i)}
