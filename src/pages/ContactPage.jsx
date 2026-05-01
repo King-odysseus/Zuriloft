@@ -102,7 +102,7 @@ function ContactPage() {
                         value={formData.firstName}
                         onChange={handleChange}
                         placeholder="John"
-                        className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937] placeholder-[#6b7280]"
+                        className="w-full px-5 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors bg-white text-[#1f2937] placeholder-[#6b7280]"
                         required
                       />
                     </div>
@@ -114,7 +114,7 @@ function ContactPage() {
                         value={formData.lastName}
                         onChange={handleChange}
                         placeholder="Doe"
-                        className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937] placeholder-[#6b7280]"
+                        className="w-full px-5 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors bg-white text-[#1f2937] placeholder-[#6b7280]"
                         required
                       />
                     </div>
@@ -128,7 +128,7 @@ function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="john@example.com"
-                      className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937] placeholder-[#6b7280]"
+                      className="w-full px-5 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors bg-white text-[#1f2937] placeholder-[#6b7280]"
                       required
                     />
                   </div>
@@ -141,7 +141,7 @@ function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+254 712 345 678"
-                      className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937] placeholder-[#6b7280]"
+                      className="w-full px-5 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors bg-white text-[#1f2937] placeholder-[#6b7280]"
                     />
                   </div>
 
@@ -151,7 +151,7 @@ function ContactPage() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937]"
+                      className="w-full px-5 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors bg-white text-[#1f2937]"
                     >
                       <option value="">Select a subject</option>
                       <option value="booking">Booking Inquiry</option>
@@ -169,7 +169,7 @@ function ContactPage() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell us about your inquiry..."
-                      className="neu-input w-full px-5 py-3 focus:outline-none transition-all bg-white text-[#1f2937] placeholder-[#6b7280] h-32 resize-none"
+                      className="w-full px-5 py-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:border-[#C49A6C] transition-colors bg-white text-[#1f2937] placeholder-[#6b7280] h-32 resize-none"
                       required
                     ></textarea>
                   </div>
@@ -177,7 +177,7 @@ function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full neu-btn text-[#262262] font-semibold py-3 rounded-full hover:shadow-[2px_2px_4px_#d9d9d9,-2px_-2px_4px_#ffffff] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="w-full bg-[#C49A6C] text-[#262262] font-semibold py-3 rounded-full hover:bg-[#b8895c] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   >
                     {isSubmitting ? (
                       <>
