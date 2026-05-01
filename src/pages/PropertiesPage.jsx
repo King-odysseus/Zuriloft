@@ -111,7 +111,7 @@ function PropertiesPage() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             {/* Property Type Filters */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 items-center">
               {filterButtons.map(({ key, label }) => (
                 <button
                   key={key}
@@ -125,24 +125,7 @@ function PropertiesPage() {
                   {label}
                 </button>
               ))}
-            </div>
-
-            {/* Price Range Filter */}
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-[#6b7280]">Price:</span>
-                <select
-                  value={priceRange}
-                  onChange={(e) => setPriceRange(e.target.value)}
-                  className="px-4 py-2 rounded-full text-sm font-medium bg-[#D9D9D9] text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#C49A6C] cursor-pointer"
-                >
-                  <option value="all">All Prices</option>
-                  <option value="low">Under KES 5,000</option>
-                  <option value="mid">KES 5,000 - 8,000</option>
-                  <option value="high">Above KES 8,000</option>
-                </select>
-              </div>
-              <label className="flex items-center gap-2 cursor-pointer">
+              <label className="flex items-center gap-2 cursor-pointer ml-2">
                 <input
                   type="checkbox"
                   checked={availableOnly}
@@ -152,12 +135,27 @@ function PropertiesPage() {
                 <span className="text-sm text-[#1f2937] font-medium">Available to Book</span>
               </label>
             </div>
+
+            {/* Price Range Filter */}
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-[#6b7280]">Price:</span>
+              <select
+                value={priceRange}
+                onChange={(e) => setPriceRange(e.target.value)}
+                className="px-4 py-2 rounded-full text-sm font-medium bg-[#D9D9D9] text-[#1f2937] focus:outline-none focus:ring-2 focus:ring-[#C49A6C] cursor-pointer"
+              >
+                <option value="all">All Prices</option>
+                <option value="low">Under KES 5,000</option>
+                <option value="mid">KES 5,000 - 8,000</option>
+                <option value="high">Above KES 8,000</option>
+              </select>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Properties Grid */}
-      <section className="py-12 bg-white">
+      <section className="py-12 neu-bg">
         <div className="max-w-7xl mx-auto px-6">
           {/* Results Count */}
           <div className="mb-6 flex items-center justify-between">
@@ -188,7 +186,7 @@ function PropertiesPage() {
                 </Link>
               ))}
               {/* Coming Soon Cards */}
-              <div className="group bg-white rounded-2xl shadow-md border border-[#D9D9D9] overflow-hidden">
+              <div className="group neu-card overflow-hidden">
                 <div className="relative aspect-[4/3]">
                   <img
                     src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80"
@@ -239,7 +237,7 @@ function PropertiesPage() {
                   </div>
                 </div>
               </div>
-              <div className="group bg-white rounded-2xl shadow-md border border-[#D9D9D9] overflow-hidden">
+              <div className="group neu-card overflow-hidden">
                 <div className="relative aspect-[4/3]">
                   <img
                     src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80"
