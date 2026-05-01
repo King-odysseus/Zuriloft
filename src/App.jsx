@@ -73,7 +73,7 @@ function HomePage() {
             </ul>
             <a
               href="/property/1"
-              className="inline-block bg-[#262262] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#262262]/90 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="inline-block neu-btn text-[#262262] px-8 py-3 rounded-full font-semibold hover:shadow-[2px_2px_4px_#d9d9d9,-2px_-2px_4px_#ffffff] transition-all duration-200"
             >
               View Property
             </a>
@@ -82,7 +82,7 @@ function HomePage() {
           {/* Right Column - Property Image Carousel */}
           <div className="w-full max-w-md">
             <div id="property-carousel" className="relative w-full h-full">
-              <div className="relative h-full overflow-hidden rounded-2xl shadow-md">
+              <div className="relative h-full overflow-hidden rounded-2xl neu-card shadow-[4px_4px_8px_#d9d9d9,-4px_-4px_8px_#ffffff]">
                 {[
                   'https://images.pexels.com/photos/27224283/pexels-photo-27224283.jpeg?auto=compress&cs=tinysrgb&w=800',
                   'https://images.pexels.com/photos/7219921/pexels-photo-7219921.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -221,9 +221,9 @@ function HomePage() {
                 image: 'https://images.pexels.com/photos/1757363/pexels-photo-1757363.jpeg?auto=compress&cs=tinysrgb&w=800',
               },
             ].map((place, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div key={i} className="neu-card overflow-hidden transition-shadow duration-300">
                 <div className="h-48 overflow-hidden">
-                  <img className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" src={place.image} alt={place.name} />
+                  <img className="w-full h-full object-cover hover:scale-110 transition-transform duration-500 rounded-t-[1.5rem]" src={place.image} alt={place.name} />
                 </div>
                 <div className="p-5">
                   <h3 className="text-lg font-bold text-[#262262] mb-2">{place.name}</h3>
@@ -276,9 +276,9 @@ function HomePage() {
                 image: 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800',
               },
             ].map((place, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div key={i} className="neu-card overflow-hidden transition-shadow duration-300">
                 <div className="h-48 overflow-hidden">
-                  <img className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" src={place.image} alt={place.name} />
+                  <img className="w-full h-full object-cover hover:scale-110 transition-transform duration-500 rounded-t-[1.5rem]" src={place.image} alt={place.name} />
                 </div>
                 <div className="p-5">
                   <h3 className="text-lg font-bold text-[#262262] mb-2">{place.name}</h3>
